@@ -34,7 +34,7 @@ function shouldSkipEvent($eventDate, $currentDateTime) {
     return $hoursDiff < -4 || $hoursDiff > 24;
 }
 
-$currentDateTime = new DateTime("now", new DateTimeZone('Australia/Sydney'));
+$currentDateTime = new DateTime("now", new DateTimeZone('America/New_York'));
 
 $m3u8Content = "#EXTM3U\n\n";
 
@@ -51,7 +51,7 @@ foreach ($data as $match) {
         $sourceName = ucwords(strtolower($source['source']));
         $id = $source['id'];
         $dateTime = new DateTime("@".($match['date'] / 1000));
-        $dateTime->setTimezone(new DateTimeZone('Australia/Sydney'));
+        $dateTime->setTimezone(new DateTimeZone('America/New_York'));
         $formattedTime = $dateTime->format('h:i A');
         $formattedDate = $dateTime->format('d/m/Y');
 
